@@ -1,2 +1,2 @@
 special-vendored-path/* linguist-vendored
-java linguist-vendored=false
+*.java linguist-vendored=false
