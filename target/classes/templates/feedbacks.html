@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>All Feedback</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Feedback ID</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Subject</th>
+					<th scope="col">Message</th>
+					<th scope="col">Edit</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr th:each="feedback : ${feedbacks}">
+						<th scope="row" th:text="${feedback.idfeedback}"></th>
+						<td th:text="${feedback.name}"></td>
+						<td th:text="${feedback.email}"></td>
+						<td th:text="${feedback.subject}"></td>
+						<td th:text="${feedback.message}"></td>
+						<td><a th:href="${'/feedback/edit/' + feedback.idfeedback}" class="btn btn-default">Edit</a></td>
+                		<td><a th:href="${'/feedback/delete/' + feedback.idfeedback}" class="btn btn-danger">Delete</a></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
